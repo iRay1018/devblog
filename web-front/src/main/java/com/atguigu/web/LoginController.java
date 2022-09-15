@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/login")
 public class LoginController {
 
+    private static final String PAGE_INDEX = "frame/index";
     @Autowired
     LoginMapper loginMapper;
     @PostMapping("/index")
@@ -28,7 +29,6 @@ public class LoginController {
             model.addAttribute("message","请输入正确的用户名和密码");
             return "login";
         }
-        model.addAttribute("username",user.getUsername());
-        return  "user";
+        return  PAGE_INDEX;
     }
 }
